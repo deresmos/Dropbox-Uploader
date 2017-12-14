@@ -20,8 +20,9 @@
 #
 
 #Looking for dropbox uploader
-if [ -f "./dropbox_uploader.sh" ]; then
-    DU="./dropbox_uploader.sh"
+dpup_path=$(cd $(dirname $(readlink -f $0)); pwd)'/dropbox_uploader.sh'
+if [ -f $dpup_path ]; then
+    DU=$dpup_path
 else
     DU=$(which dropbox_uploader.sh)
     if [ $? -ne 0 ]; then
